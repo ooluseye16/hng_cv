@@ -39,7 +39,7 @@ class _EditCvScreenState extends State<EditCvScreen> {
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
