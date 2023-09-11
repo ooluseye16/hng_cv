@@ -88,11 +88,11 @@ class _MyHomePageState extends State<MyHomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Github URL: ",
+                  "Github Handle: ",
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                 ),
                 ValueListenableBuilder<String>(
-                    valueListenable: cvNotifier.githubUrlNotifier,
+                    valueListenable: cvNotifier.githubHandleNotifier,
                     builder: (context, value, child) {
                       return Text(
                         value,

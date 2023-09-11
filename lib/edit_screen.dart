@@ -11,7 +11,7 @@ class EditCvScreen extends StatefulWidget {
 class _EditCvScreenState extends State<EditCvScreen> {
   late TextEditingController fullNameController = TextEditingController();
   late TextEditingController slackIdController = TextEditingController();
-  late TextEditingController githubUrlController = TextEditingController();
+  late TextEditingController githubHandleController = TextEditingController();
   late TextEditingController bioController = TextEditingController();
 
   @override
@@ -21,10 +21,19 @@ class _EditCvScreenState extends State<EditCvScreen> {
         TextEditingValue(text: widget.cvNotifier.fullNameNotifier.value));
     slackIdController = TextEditingController.fromValue(
         TextEditingValue(text: widget.cvNotifier.slackIDNotifier.value));
-    githubUrlController = TextEditingController.fromValue(
-        TextEditingValue(text: widget.cvNotifier.githubUrlNotifier.value));
+    githubHandleController = TextEditingController.fromValue(
+        TextEditingValue(text: widget.cvNotifier.githubHandleNotifier.value));
     bioController = TextEditingController.fromValue(
         TextEditingValue(text: widget.cvNotifier.bioNotifier.value));
+  }
+
+  @override
+  void dispose() {
+    fullNameController.dispose();
+    slackIdController.dispose();
+    githubHandleController.dispose();
+    bioController.dispose();
+    super.dispose();
   }
 
   @override
@@ -59,7 +68,7 @@ class _EditCvScreenState extends State<EditCvScreen> {
               height: 16,
             ),
             const Text(
-              "Slack Id",
+              "Slack ID",
               style: TextStyle(fontWeight: FontWeight.w600),
             ),
             const SizedBox(
@@ -73,14 +82,14 @@ class _EditCvScreenState extends State<EditCvScreen> {
               height: 16,
             ),
             const Text(
-              "Github Url",
+              "Github Handle",
               style: TextStyle(fontWeight: FontWeight.w600),
             ),
             const SizedBox(
               height: 8,
             ),
             TextField(
-              controller: githubUrlController,
+              controller: githubHandleController,
               decoration: inputDecoration,
             ),
             const SizedBox(
@@ -122,8 +131,8 @@ class _EditCvScreenState extends State<EditCvScreen> {
                       slackIdController.text;
 
                   // Update the githubUrlNotifier value
-                  widget.cvNotifier.githubUrlNotifier.value =
-                      githubUrlController.text;
+                  widget.cvNotifier.githubHandleNotifier.value =
+                      githubHandleController.text;
 
                   // Update the bioNotifier value
                   widget.cvNotifier.bioNotifier.value = bioController.text;
