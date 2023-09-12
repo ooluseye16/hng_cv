@@ -136,7 +136,7 @@ class _EditCvScreenState extends State<EditCvScreen> {
 
                   // Update the bioNotifier value
                   widget.cvNotifier.bioNotifier.value = bioController.text;
-
+                  Navigator.pop(context);
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       content: Text("Info updated successfully"),
